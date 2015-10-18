@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Tests", "SampleApp.Tests\SampleApp.Tests.csproj", "{1031EEF5-A5C0-4013-9FDD-7C89824B4BE9}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SampleApp.Database", "SampleApp.Database\SampleApp.Database.sqlproj", "{BDAD12BB-C601-447F-A684-65489F02E967}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{1031EEF5-A5C0-4013-9FDD-7C89824B4BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1031EEF5-A5C0-4013-9FDD-7C89824B4BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1031EEF5-A5C0-4013-9FDD-7C89824B4BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDAD12BB-C601-447F-A684-65489F02E967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDAD12BB-C601-447F-A684-65489F02E967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDAD12BB-C601-447F-A684-65489F02E967}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BDAD12BB-C601-447F-A684-65489F02E967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDAD12BB-C601-447F-A684-65489F02E967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDAD12BB-C601-447F-A684-65489F02E967}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
