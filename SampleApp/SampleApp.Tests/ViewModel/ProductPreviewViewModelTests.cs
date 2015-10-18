@@ -8,6 +8,7 @@ using Moq;
 using NUnit.Framework;
 using SampleApp.Data;
 using SampleApp.Messages;
+using SampleApp.Model;
 using SampleApp.ViewModel;
 
 namespace SampleApp.Tests.ViewModel
@@ -16,6 +17,7 @@ namespace SampleApp.Tests.ViewModel
     public class ProductPreviewViewModelTests
     {
         private Mock<IMessenger> _messengerMock;
+        private Mock<IBasketModel> _basketModelMock;
         private ProductPreviewViewModel _viewModel;
 
         private Action<ProductPreviewMessage> _previewHandle;
@@ -24,12 +26,13 @@ namespace SampleApp.Tests.ViewModel
         public void Setup()
         {
             _messengerMock = new Mock<IMessenger>();
+            _basketModelMock = new Mock<IBasketModel>();
 
             _messengerMock
                 .Setup(m => m.Register<ProductPreviewMessage>(It.IsAny<ProductPreviewViewModel>(), It.IsAny<Action<ProductPreviewMessage>>()))
                 .Callback<object, Action<ProductPreviewMessage>>((o, a) => _previewHandle = a);
 
-            _viewModel = new ProductPreviewViewModel(_messengerMock.Object);
+            _viewModel = new ProductPreviewViewModel(_messengerMock.Object, _basketModelMock.Object);
         }
 
         [Test]
@@ -56,24 +59,20 @@ namespace SampleApp.Tests.ViewModel
         }
 
         [Test]
-        public void ShouldRaiseAddProductEventWhenAddProductCommandIsExecuted()
+        public void ShouldAddProductToBasketWhenAddProductCommandIsExecuted()
         {
-            var message = (AddProductMessage)null;
             var product = new Product();
-
-            _messengerMock
-                .Setup(m => m.Send<AddProductMessage>(It.IsAny<AddProductMessage>()))
-                .Callback<AddProductMessage>(m => message = m)
-                .Verifiable();
 
             _viewModel.Product = product;
 
+            _basketModelMock
+                .Setup(m => m.AddItem(product, 1))
+                .Verifiable();
+
             _viewModel.AddProductCommand.Execute(null);
 
-            _messengerMock.Verify();
-
-            Assert.IsNotNull(message);
-            Assert.AreEqual(product, message.Product);
+            _basketModelMock
+                .Verify();
         }
     }
 }

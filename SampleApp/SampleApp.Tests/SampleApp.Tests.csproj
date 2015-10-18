@@ -69,7 +69,7 @@
     <Compile Include="Services\ProductsServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />
-    <Compile Include="ViewModel\BasketViewModelTests.cs" />
+    <Compile Include="Model\BasketModelTests.cs" />
     <Compile Include="ViewModel\ProductListViewModelTests.cs" />
     <Compile Include="ViewModel\ProductPreviewViewModelTests.cs" />
     <Compile Include="ViewModel\SearchViewModelTests.cs" />

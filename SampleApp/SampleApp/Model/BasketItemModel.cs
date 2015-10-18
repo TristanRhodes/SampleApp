@@ -8,14 +8,21 @@ using SampleApp.Data;
 
 namespace SampleApp.Model
 {
+    public interface IBasketItemModel
+    {
+        int Count { get; }
+
+        Product Product { get; }
+    }
+
     /// <summary>
     /// ViewModel for products that are contained in the basket
     /// </summary>
-    public class BasketItem : ViewModelBase
+    public class BasketItemModel : ModelBase, IBasketItemModel
     {
         private int _count;
 
-        public BasketItem(Product product)
+        public BasketItemModel(Product product)
         {
             Product = product;
             Count = 1;

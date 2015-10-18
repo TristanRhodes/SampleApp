@@ -36,7 +36,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <ListView Grid.Column="0" ItemsSource="{Binding Items}"
+        <ListView Grid.Column="0" ItemsSource="{Binding BasketModel.Items}"
                   ItemTemplate="{StaticResource BasketProductTemplate}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -45,6 +45,6 @@
             </ListView.ItemsPanel>
         </ListView>
         <Label Grid.Column="1" Content="Total:" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="2" Text="{Binding Total}" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="2" Text="{Binding BasketModel.Total}" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

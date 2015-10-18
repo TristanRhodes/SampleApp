@@ -16,6 +16,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Practices.ServiceLocation;
+using SampleApp.Model;
 using SampleApp.Services;
 
 namespace SampleApp.ViewModel
@@ -55,6 +56,9 @@ namespace SampleApp.ViewModel
 
             // Services
             SimpleIoc.Default.Register<IProductsService, ProductsService>();
+
+            // Models
+            SimpleIoc.Default.Register<IBasketModel, BasketModel>();
 
             // View Models     
             SimpleIoc.Default.Register<ProductListViewModel>();
