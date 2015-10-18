@@ -9,6 +9,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using SampleApp.Data;
 using SampleApp.Messages;
+using SampleApp.Model;
 
 namespace SampleApp.ViewModel
 {
@@ -16,9 +17,10 @@ namespace SampleApp.ViewModel
     {
         private bool _visible;
         private Data.Product _product;
+        private IBasketModel _basketModel;
 
         
-        public ProductPreviewViewModel(IMessenger messenger)
+        public ProductPreviewViewModel(IMessenger messenger, IBasketModel basketModel)
         {
             // Design setup
             if (this.IsInDesignMode)
@@ -36,8 +38,9 @@ namespace SampleApp.ViewModel
 
             // Unpack
             MessengerInstance = messenger;
+            _basketModel = basketModel;
 
-            // Event Registration
+            // Register Message Handlers
             MessengerInstance.Register<ProductPreviewMessage>(this, HandleProductPreview);
 
             // Commands
@@ -92,7 +95,7 @@ namespace SampleApp.ViewModel
         private void AddProductExecute()
         {
             Visible = false;
-            MessengerInstance.Send(new AddProductMessage(Product));
+            _basketModel.AddItem(Product);
         }
     }
 }

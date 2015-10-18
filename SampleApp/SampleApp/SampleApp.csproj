@@ -87,12 +87,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\Product.cs" />
-    <Compile Include="Messages\AddProductMessage.cs" />
     <Compile Include="Messages\ProductPreviewMessage.cs" />
     <Compile Include="Messages\SearchMessage.cs" />
-    <Compile Include="Model\Basket.cs" />
+    <Compile Include="Model\BasketModel.cs" />
+    <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Services\ProductsService.cs" />
-    <Compile Include="Model\BasketItem.cs" />
+    <Compile Include="Model\BasketItemModel.cs" />
     <Compile Include="ViewModel\BasketViewModel.cs" />
     <Compile Include="ViewModel\ProductListViewModel.cs" />
     <Compile Include="ViewModel\ProductPreviewViewModel.cs" />
